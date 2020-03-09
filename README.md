@@ -1,7 +1,7 @@
 # Hello-Simple-Framework-PHP
 Simple and Light Framework PHP using OOP and Classic MVC
 
-## Features
+## Features:
 - [Routing using Klein Library](https://github.com/klein/klein.php).
 - [HTTP Request with PHP-Curl-Class Library](https://github.com/php-curl-class/php-curl-class).
 - [Send Email using PHPMailer Library](https://github.com/PHPMailer/PHPMailer).
@@ -11,5 +11,5 @@ Simple and Light Framework PHP using OOP and Classic MVC
 - Classic MVC
 - Build in OOP PHP v7
 
-## How to Use
+## How to Use:
 Coming soon for Documentation...
