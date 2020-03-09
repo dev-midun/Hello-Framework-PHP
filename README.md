@@ -1,4 +1,4 @@
-# Hello-Simple-Framework-PHP
+# Hello: Simple Framework PHP
 Simple and Light Framework PHP using OOP and Classic MVC
 
 ## Features:
