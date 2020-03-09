@@ -8,7 +8,7 @@ Simple and Light Framework PHP using OOP and Classic MVC
 - [Authentication & authorization using JWT](https://github.com/firebase/php-jwt) or using Classic Session.
 - Support CORS for simple Web API.
 - Simple Migrate & Seeder Database using RAW SQL.
-- Classic MVC
+- Classic MVC or Use MC only and view handle by HTML-JS and integrate with API
 - Build in OOP PHP v7
 
 ## How to Use:
