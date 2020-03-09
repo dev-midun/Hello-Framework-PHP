@@ -15,5 +15,8 @@ Simple Framework PHP using OOP and Classic MVC
 - Default Admin Template is Integrate with [AdminLTE v3](https://github.com/ColorlibHQ/AdminLTE) or you can change it anytime.
 - Build in OOP PHP v7
 
-## How to Use:
+## How to Use ?
+Coming soon for Documentation...
+
+## How this framework work ?
 Coming soon for Documentation...
