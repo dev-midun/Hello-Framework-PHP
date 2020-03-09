@@ -8,9 +8,9 @@ Simple Framework PHP using OOP and Classic MVC
 - Authentication & authorization using [PHP-JWT Library](https://github.com/firebase/php-jwt) or using Classic Session.
 - Build Excel/Spreadshhet Export using [PhpSpreadsheet Library](https://github.com/PHPOffice/PhpSpreadsheet).
 - SQL Builder (Coming soon)...
-- Simple Migrate & Seeder Database using RAW SQL..
+- Simple Migrate & Seeder Database using RAW SQL
 - Support CORS for simple Web API.
-- Classic MVC or Use MC only and view will be handled by HTML-JS and integrate with API.
+- Classic MVC or MC only and view will be handled by HTML-JS and integrate with API.
 - Index.php is removed in URL with htaccess.
 - Default Admin Template is Integrate with [AdminLTE v3](https://github.com/ColorlibHQ/AdminLTE) or you can change it anytime.
 - Build in OOP PHP v7
