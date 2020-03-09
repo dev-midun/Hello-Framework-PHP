@@ -10,7 +10,7 @@ Simple Framework PHP using OOP and Classic MVC
 - SQL Builder (Coming soon)...
 - Simple Migrate & Seeder Database using RAW SQL..
 - Support CORS for simple Web API.
-- Classic MVC or Use MC only and view handle by HTML-JS and integrate with API.
+- Classic MVC or Use MC only and view will be handled by HTML-JS and integrate with API.
 - Index.php is removed in URL with htaccess.
 - Default Admin Template is Integrate with [AdminLTE v3](https://github.com/ColorlibHQ/AdminLTE) or you can change it anytime.
 - Build in OOP PHP v7
