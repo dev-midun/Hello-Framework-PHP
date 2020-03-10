@@ -1,0 +1,19 @@
+{
+    "name": "dev-dmadan/hello-framework-php",
+    "description": "Simple and Light Framework PHP using OOP and Classic MVC",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Romadan Saputra",
+            "email": "42397721+dev-dmadan@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "klein/klein": "^2.1",
+        "php-curl-class/php-curl-class": "^8.7",
+        "phpmailer/phpmailer": "^6.1",
+        "firebase/php-jwt": "^5.1",
+        "phpoffice/phpspreadsheet": "^1.11"
+    }
+}
