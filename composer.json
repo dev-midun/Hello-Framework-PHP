@@ -14,6 +14,7 @@
         "php-curl-class/php-curl-class": "^8.7",
         "phpmailer/phpmailer": "^6.1",
         "firebase/php-jwt": "^5.1",
-        "phpoffice/phpspreadsheet": "^1.11"
+        "phpoffice/phpspreadsheet": "^1.11",
+        "almasaeed2010/adminlte": "~3.0"
     }
 }

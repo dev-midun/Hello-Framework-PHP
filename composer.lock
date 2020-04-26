@@ -4,8 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8c7b395852a0ba277d7b8c44969d92c",
+    "content-hash": "defb3b69a3a7eea5aa858c6cc8427aa2",
     "packages": [
+        {
+            "name": "almasaeed2010/adminlte",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
+                "reference": "0e48302342e9c04174ed73902b08324d47d4e792"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/0e48302342e9c04174ed73902b08324d47d4e792",
+                "reference": "0e48302342e9c04174ed73902b08324d47d4e792",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colorlib"
+                }
+            ],
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 4",
+            "homepage": "http://adminlte.io/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "time": "2020-01-17T08:05:37+00:00"
+        },
         {
             "name": "firebase/php-jwt",
             "version": "v5.1.0",
