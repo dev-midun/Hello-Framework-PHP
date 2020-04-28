@@ -10,7 +10,7 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
     $__configuration['SITE_URL'] = array(
         'PROD' => '',
         'DEV-LIVE' => '',
-        'DEV' => 'http://localhost:8000/'
+        'DEV' => 'http://localhost/Others/Hello-Framework-PHP/'
     );
     $__configuration['CONTROLLER'] = ROOT.DS. 'app' .DS. 'controller' .DS;
     $__configuration['MODEL'] = ROOT.DS. 'app' .DS. 'model' .DS;
@@ -127,7 +127,7 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
     $__configuration['DB_NAME'] = array(
         'PROD' => '',
         'DEV-LIVE' => '',
-        'DEV' => 'dev-sob'
+        'DEV' => 'dev-hello-framework'
     );
 /** End Database Configuration */
 
