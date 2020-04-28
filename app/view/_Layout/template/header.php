@@ -129,6 +129,31 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
+
+        <!-- Profile -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="fas fa-cog"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <span class="dropdown-item dropdown-header">Setting</span>
+                
+                <div class="dropdown-divider"></div>
+                
+                <a href="<?= SITE_URL. 'profile' ?>" class="dropdown-item">
+                    <i class="fas fa-user mr-2"></i> Profile
+                </a>
+                
+                <div class="dropdown-divider"></div>
+
+                <a href="<?= SITE_URL. 'logout' ?>" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout   
+                </a>
+
+                <div class="dropdown-divider"></div>
+            </div>
+        </li>
+
         <!-- <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
             <i class="fas fa-th-large"></i>
