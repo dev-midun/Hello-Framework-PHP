@@ -88,10 +88,13 @@ function setSidebar() {
     const _siteUrl = SITE_URL.substring(0, (SITE_URL.length-1));
     const sidebar = document.querySelector('#__sidebar');
     SIDEBAR_LIST.forEach(item => {
+        const isActive = window.location.href == (_siteUrl+item.router) ? true : false;
+        const liClassName = isActive ? 'nav-item menu-open' : 'nav-item';
+        const aClassName = isActive ? 'nav-link active' : 'nav-link';
         const icon = (!item.icon || item.icon.trim() == '') ? 'far fa-circle' : item.icon;
         let li = document.createElement('li');
-        li.className = 'nav-item';
-        let liValue =   `<a href="${_siteUrl}${item.router}" class="nav-link">` +
+        li.className = liClassName;
+        let liValue =   `<a href="${_siteUrl}${item.router}" class="${aClassName}">` +
                                 `<i class="nav-icon ${icon}"></i>` +
                                 `<p>${item.title}</p></a>`;
         li.innerHTML = liValue;
