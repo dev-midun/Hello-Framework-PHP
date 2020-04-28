@@ -87,6 +87,6 @@ class Request {
             return $data;
         }
 
-        return $controller->view('error/error', $data, true);
+        return $controller->view('Error/error', $data, true);
     }
 }
