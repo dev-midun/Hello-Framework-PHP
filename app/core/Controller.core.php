@@ -4,6 +4,7 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use Ramsey\Uuid\Uuid;
 
 class Controller {
 
@@ -111,6 +112,17 @@ class Controller {
         die();
     }
 
+    /**
+     * Method template
+     * Load and render content to template AdminLTE
+     * @param {string} content path content in folder view
+     * @param {object} config default null
+     *                  conifg.css {array}
+     *                  config.js {array of object}
+     *                      js.src {string}
+     *                      js.type {string} if empty or not isset, default is script js basic
+     * @param {array} data default null, parsing var to content
+     */
     final protected function template($content, $config = null, $data = null) {
         $this->template = new Template();
         
@@ -207,9 +219,10 @@ class Controller {
      * Method responseJSON
      * Return response to JSON
      * @param {any} data can be string, int, object, array or any
+     * @param {int} responseCode
      */
-    final public function responseJSON($data) {
-        http_response_code(200);
+    final public function responseJSON($data, $responseCode = 200) {
+        http_response_code($responseCode);
         header("Content-Type: application/json");
         header("Accept: application/json");
 
@@ -254,7 +267,7 @@ class Controller {
     }
 
     /**
-     * Moethod loadModule
+     * Method loadModule
      * Load Module Model, Helper, and Library and access it to controller
      * @param {string} type model, library, and helper
      * @param {string || array} name
@@ -310,7 +323,46 @@ class Controller {
     }
 
     /**
-     * 
+     * Method NewGuid
+     * Generate New Guid
+     * @param {string} type. Default is string. byte | string
+     * @return {byte | string} guid
+     */
+    final protected function NewGuid($type = 'string') {
+        $uuid = Uuid::uuid4();
+
+        return ($type == 'byte') ? $uuid->getBytes() : (($type == 'string') ? $uuid->toString() : null);
+    }
+
+    /**
+     * Method ParseGuid
+     * Generate Guid from string
+     * @param {string} guidString
+     * @param {string} type. Default is string. byte | string
+     * @return {byte | string} guid
+     */
+    final protected function ParseGuid($guidString, $type = 'string') {
+        $uuid = Uuid::fromString($guidString);
+
+        return ($type == 'byte') ? $uuid->getBytes() : (($type == 'string') ? $uuid->toString() : null);
+    }
+
+    /**
+     * Method ToStringGuid
+     * Guid to String
+     * @param {byte | string} guid
+     * @param {string} type. Default is string. byte | string
+     */
+    final protected function ToStringGuid($guid, $type = 'string') {
+        $uuid = ($type == 'byte') ? Uuid::fromBytes($guid) : Uuid::fromString($guidString);
+
+        return $uuid->toString();
+    }
+
+    /**
+     * Method consoleLog
+     * Beautify var dump
+     * @param {any} data
      */
     final public function consoleLog($data) {
         echo '<pre>';
