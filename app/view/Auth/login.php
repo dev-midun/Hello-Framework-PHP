@@ -15,6 +15,8 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
         <link rel="stylesheet" href="<?= ADMIN_LTE. 'plugins/icheck-bootstrap/icheck-bootstrap.min.css'; ?>">
         <link rel="stylesheet" href="<?= ADMIN_LTE. 'dist/css/adminlte.min.css'; ?>">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
+        <link rel="stylesheet" href="<?= ADMIN_LTE. 'plugins/toastr/toastr.min.css'; ?>">
+        <link rel="stylesheet" href="<?= ADMIN_LTE. 'plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'; ?>">
     </head>
     <body class="hold-transition login-page">
         <div class="login-box">
@@ -29,7 +31,7 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
 
                     <form id="form-login">
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email or Username">
+                            <input id="email" type="email" class="form-control" placeholder="Email or Username">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -38,7 +40,7 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input id="password" type="password" class="form-control" placeholder="Password">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -89,6 +91,8 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
 
         <script src="<?= ADMIN_LTE. 'plugins/jquery/jquery.min.js'; ?>"></script>
         <script src="<?= ADMIN_LTE. 'plugins/bootstrap/js/bootstrap.bundle.min.js'; ?>"></script>
+        <script src="<?= ADMIN_LTE. 'plugins/sweetalert2/sweetalert2.min.js'; ?>"></script>
+        <script src="<?= ADMIN_LTE. 'plugins/toastr/toastr.min.js'; ?>"></script>
         <script src="<?= ADMIN_LTE. 'dist/js/adminlte.min.js'; ?>"></script>
         
         <!-- Global Variable -->
@@ -100,6 +104,7 @@ Defined('BASE_PATH') or die(ACCESS_DENIED);
             const PUSHER_SECRET = <?php echo json_encode(PUSHER_SECRET); ?>;
             const PUSHER_CLUSTER = <?php echo json_encode(PUSHER_CLUSTER); ?>;
         </script>
-        <script type="module" src="<?= BASE_URL. 'app/view/Auth/js/login.js'; ?>"></script>
+        <script type="module" src="<?= BASE_URL. 'app/view/Auth/js/auth.js'; ?>"></script>
+        <!-- <script src="<?= BASE_URL. 'app/view/Auth/js/login.js'; ?>"></script> -->
     </body>
 </html>

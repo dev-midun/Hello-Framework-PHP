@@ -8,7 +8,6 @@ class Auth {
     private $useJWT;
 
     public function __construct() {
-        $this->useJWT = USE_JWT;
     }
 
     /**
@@ -20,11 +19,13 @@ class Auth {
      */
     public function alreadyLogin() {
         if(!$this->isLogin()) {
-            if(!$this->useJWT) {
-                session_unset();
-				session_destroy();
+            if(USE_JWT) {
+                unset($_COOKIE[QUERY_STRING_AUTH]);
+                setcookie(QUERY_STRING_AUTH, '', (time() - 3600), '/');
             }
 
+            session_unset();
+            session_destroy();
             header("Location: ". SITE_URL. 'login');
             die();
         }
@@ -34,7 +35,7 @@ class Auth {
      * 
      */
     public function isLogin() {
-        $isLogin = $this->useJWT ? $this->verifyJWT() : $this->verifySession();
+        $isLogin = USE_JWT ? $this->verifyJWT() : $this->verifySession();
         
         return $isLogin;
     }
@@ -52,18 +53,71 @@ class Auth {
      * Method buildJWT
      * Generate and build token
      */
-    public function buildJWT($data) {
+    public function buildJWT($data, $exp = 7200) {
         $payload = array(
             "iss" => SITE_URL,
             "aud" => SITE_URL,
             "iat" => time(),
             "nbf" => time(),
-            "exp" => time() + 7200,
+            "exp" => time() + $exp,
             "data" => $data
         );
         $jwt = JWT::encode($payload, KEY_AUTH);
 
         return $jwt;
+    }
+
+    /**
+     * Method canAccess
+     * @param {string}
+     */
+    public function isCanAccess($accessName) {
+        $isGranted = (object)array(
+            'isCanRead' => false,
+            'isCanInsert' => false,
+            'isCanUpdate' => false,
+            'isCanDelete' => false
+        );
+        /*
+            $accessList = [
+                'SectionA' => (object)array(
+                    'isCanRead' => true,
+                    'isCanInsert' => false,
+                    'isCanUpdate' => false,
+                    'isCanDelete' =>  true
+                ),
+                'SectionB' => (object)array(
+                    'isCanRead' => true,
+                    'isCanInsert' => false,
+                    'isCanUpdate' => false,
+                    'isCanDelete' =>  true
+                ),
+                ...
+            ]
+        */
+        $accessList = isset($_SESSION['sess_access_list']) && !empty($_SESSION['sess_access_list']) ? $_SESSION['sess_access_list'] : null;
+        
+        try {
+            if(!$accessList) {
+                throw new Exception('');
+            }
+
+            $accessCheck = array_filter($accessList, function($access) use($accessName) {
+                return $access == $accessName;
+            }, ARRAY_FILTER_USE_KEY);
+            if(count($accessCheck) < 1) {
+                throw new Exception('');
+            }
+
+            $isGranted->isCanRead = $accessCheck[$accessName]->isCanRead;
+            $isGranted->isCanInsert = $accessCheck[$accessName]->isCanInsert;
+            $isGranted->isCanUpdate = $accessCheck[$accessName]->isCanUpdate;
+            $isGranted->isCanDelete = $accessCheck[$accessName]->isCanDelete;
+        } 
+        catch (Exception $e) {
+        }
+        
+        return $isGranted;
     }
 
     /**
@@ -112,6 +166,9 @@ class Auth {
             if($isReturnMessage) {
                 $verify->success = true;
             }
+            else {
+                $verify = true;
+            }
         } 
         catch (Exception $e) {
             if($isReturnMessage) {
@@ -122,7 +179,7 @@ class Auth {
             }
         }
 
-        return $verify ;
+        return $verify;
     }
 
     /**
